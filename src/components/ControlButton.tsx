@@ -1,12 +1,16 @@
 import { createSignal, Switch, Match } from "solid-js";
 import "./ControlButton.css";
 
-export default function ControlButton({ setStatus }: { setStatus: (status: string) => void }) {
+export default function ControlButton({
+  setStatus,
+}: {
+  setStatus: (status: string) => void;
+}) {
   const [started, setStarted] = createSignal(false);
   const [clicktime, setClicktime] = createSignal(0);
 
   const clickAction = () => {
-    const current = new Date().getTime()
+    const current = new Date().getTime();
     if (clicktime() === 0) {
       setClicktime(current);
       setStarted(true);
@@ -20,18 +24,14 @@ export default function ControlButton({ setStatus }: { setStatus: (status: strin
     }
     setStatus("Click the start button");
     setClicktime(0);
-  }
+  };
 
   return (
     <button class="increment" onClick={clickAction}>
       <Switch fallback={<>Reset</>}>
-        <Match when={clicktime() === 0}>
-          Start
-        </Match>
-        <Match when={started()}>
-          Stop
-        </Match>
+        <Match when={clicktime() === 0}>Start</Match>
+        <Match when={started()}>Stop</Match>
       </Switch>
-    </button >
+    </button>
   );
 }

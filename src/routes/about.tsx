@@ -5,7 +5,11 @@ export default function About() {
     <main>
       <Title>About</Title>
       <article>
-        <p><A href="https://github.com/iPolyomino/solidjs-tutorial">source code</A></p>
+        <p>
+          <A href="https://github.com/iPolyomino/solidjs-tutorial">
+            source code
+          </A>
+        </p>
       </article>
     </main>
   );
